@@ -1,8 +1,10 @@
 import { Background, ReactFlow, Controls, useReactFlow } from "reactflow";
 import { useWorkflowStore } from "../store/useWorkflowStore";
 import "reactflow/dist/style.css";
-import { useCallback, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import type { Node } from "reactflow";
+import TriggerNode from "./nodes/TriggerNode";
+import ActionNode from "./nodes/ActionNode";
 const WorkflowCanvas = () => {
    const nodes = useWorkflowStore((state) => state.nodes) || []
    const edges = useWorkflowStore((state) => state.edges) || []
@@ -33,6 +35,12 @@ const WorkflowCanvas = () => {
    }, [screenToFlowPosition])
 
 
+   const nodeTypes = useMemo(()=>({ 
+trigger: TriggerNode,
+action: ActionNode
+   }),[])
+
+
    const onDragOver = useCallback((event: React.DragEvent) => {
       event.preventDefault();
       event.dataTransfer.dropEffect = "move"
@@ -47,6 +55,8 @@ const WorkflowCanvas = () => {
             onNodesChange={onNodesChange}
             onDrop={onDrop}
             onDragOver={onDragOver}
+            nodeTypes={nodeTypes}
+         
             fitView
          >
             <Background />
