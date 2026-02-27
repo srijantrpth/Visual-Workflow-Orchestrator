@@ -25,7 +25,11 @@ type WorkflowState = {
 export const useWorkflowStore = create<WorkflowState>(
 
     (set, get) => ({
-        nodes: [],
+        nodes: [{ 
+    id: "test-node-1", 
+    position: { x: 250, y: 250 }, 
+    data: { label: "My First Trigger" } 
+  }],
         edges: [],
         onNodesChange: (changes) => {
             set({
