@@ -15,24 +15,24 @@ const Sidebar = () => {
 
 
             </div>
-<div className='flex flex-col gap-2'>
-<div className='p-3 border-2 border-indigo-600 bg-gradient-to-r from-indigo-50 to-indigo-100 text-indigo-900 rounded-lg cursor-grab active:cursor-grabbing hover:from-indigo-100 hover:to-indigo-150 transition-all text-sm font-semibold shadow-md hover:shadow-lg'
-onDragStart={(event)=>onDragStart(event, "trigger")}
-draggable
->
-Webhook Trigger
-</div>
-<div
-          className="p-3 border-2 border-slate-500 bg-gradient-to-r from-slate-50 to-gray-100 text-slate-900 rounded-lg cursor-grab active:cursor-grabbing hover:from-slate-100 hover:to-gray-150 transition-all text-sm font-semibold shadow-md hover:shadow-lg"
-          onDragStart={(event) => onDragStart(event, "action")}
-          draggable
-        >
-        Send Email Action
-        </div>
+            <div className='flex flex-col gap-2'>
+                <div className='p-3 border-2 border-indigo-600 bg-gradient-to-r from-indigo-50 to-indigo-100 text-indigo-900 rounded-lg cursor-grab active:cursor-grabbing hover:from-indigo-100 hover:to-indigo-150 transition-all text-sm font-semibold shadow-md hover:shadow-lg'
+                    onDragStart={(event) => onDragStart(event, "trigger")}
+                    draggable
+                >
+                    Webhook Trigger
+                </div>
+                <div
+                    className="p-3 border-2 border-slate-500 bg-gradient-to-r from-slate-50 to-gray-100 text-slate-900 rounded-lg cursor-grab active:cursor-grabbing hover:from-slate-100 hover:to-gray-150 transition-all text-sm font-semibold shadow-md hover:shadow-lg"
+                    onDragStart={(event) => onDragStart(event, "action")}
+                    draggable
+                >   
+                    Send Email Action
+                </div>
 
-</div>
+            </div>
 
-        </aside>
+        </aside>    
     )
 }
 

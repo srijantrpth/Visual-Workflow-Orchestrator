@@ -19,17 +19,18 @@ type WorkflowState = {
     onNodesChange: OnNodesChange;
     onEdgesChange: OnEdgesChange;
     onConnect: OnConnect;
+    addNode: (node: Node) => void;
 }
 
 
 export const useWorkflowStore = create<WorkflowState>(
 
     (set, get) => ({
-        nodes: [{ 
-    id: "test-node-1", 
-    position: { x: 250, y: 250 }, 
-    data: { label: "My First Trigger" } 
-  }],
+        nodes: [{
+            id: "test-node-1",
+            position: { x: 250, y: 250 },
+            data: { label: "My First Trigger" }
+        }],
         edges: [],
         onNodesChange: (changes) => {
             set({
@@ -44,6 +45,11 @@ export const useWorkflowStore = create<WorkflowState>(
         onEdgesChange: (changes) => {
             set({
                 edges: applyEdgeChanges(changes, get().edges)
+            })
+        },
+        addNode: (node: Node) => {
+            set({
+                nodes: [...get().nodes, node]
             })
         }
 
