@@ -1,5 +1,5 @@
 import React from 'react'
-
+import RunWorkflowButton from '../components/RunWorkflowButton';
 const Sidebar = () => {
     const onDragStart = (event: React.DragEvent, nodeType: string) => {
         event.dataTransfer.setData("application/reactflow", nodeType);
@@ -31,6 +31,7 @@ const Sidebar = () => {
                 </div>
 
             </div>
+            <RunWorkflowButton/>
 
         </aside>    
     )
